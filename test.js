@@ -14,8 +14,9 @@ function train(training_set) {
 
     var layer_defs = [];
     layer_defs.push({type:'input', out_sx:1, out_sy:1, out_depth:67});
+    layer_defs.push({type:'fc', num_neurons:300, activation:'sigmoid'});
     layer_defs.push({type:'fc', num_neurons:200, activation:'relu'});
-    layer_defs.push({type:'fc', num_neurons:200, activation:'relu'});
+    layer_defs.push({type:'fc', num_neurons:100, activation:'relu'});
     layer_defs.push({type:'softmax', num_classes:2})
     
     net.makeLayers(layer_defs);
