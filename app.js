@@ -1,5 +1,5 @@
 var convnetjs = require('convnetjs');
-var featureParser = require('./feature_csv_parser.js');
+var featureParser = require('./featureParser.js');
 
 var net = new convnetjs.Net();
 
