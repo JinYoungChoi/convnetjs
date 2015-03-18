@@ -3,6 +3,8 @@
   "version" : "0.0.1",
   "dependencies": {
     "convnetjs": "latest",
-    "csv-parse": "latest"
+    "csv-parse": "latest",
+    "xlsx": "latest",
+    "async": "latest"
   }
 }
