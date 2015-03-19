@@ -9,6 +9,8 @@ var sheet1_range = xlsx.utils.decode_range(sheet1['!ref']);
 
 const http_methods = ['OPTIONS', 'GET', 'HEAD', 'POST', 'PUT', 'DELETE', 'TRACE', 'CONNECT'];
 
+var startTime = new Date().getTime();
+
 for(var row = sheet1_range.s.r; row < sheet1_range.e.r; row++)
 {
     var cell_address = xlsx.utils.encode_cell({c:7, r:row});
@@ -19,11 +21,14 @@ for(var row = sheet1_range.s.r; row < sheet1_range.e.r; row++)
         async.parallel([
             function(callback) { callback(null, feature_accept_charset(raw_data)); }
         ], function(err, results) {
-            console.log('FINAL feature vector: ', results);
+            console.log('feature vector: ', results);
         });
     }
 }
 
+var totalElapsedTime = new Date().getTime() - startTime;
+console.log('Total Elapsed Time: ', totalElapsedTime, '(ms)');
+console.log('Average Feature-extraction Time per data: ', totalElapsedTime / sheet1_range.e.r, '(ms)');
 
 function is_normal_form(http_request)
 {
